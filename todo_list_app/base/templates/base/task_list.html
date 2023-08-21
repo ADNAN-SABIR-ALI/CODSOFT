@@ -50,7 +50,6 @@
                             <div class="task-text">
                                 <a href="{% url 'task-update' task.id %}">{{task}} </a>
                             </div>
-                            <div class="task-text">created at {{task.created}}</div>
                         </div>
                     </div>
                     <a class="delete-link" href="{% url 'task-delete' task.id %}">&#10539;</a>
