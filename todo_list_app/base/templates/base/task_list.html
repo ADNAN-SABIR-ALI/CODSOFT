@@ -1,0 +1,65 @@
+{% extends 'base/main.html' %}
+
+{% block content %}
+
+    <div class="header-bar">
+        <div class="">
+            <h1>Hello {{request.user|title}} </h1>
+            <h3 style="margin:0">You have <i>{{count}} </i> incomplete task{{count|pluralize:"s"}} </h3>
+        </div>
+        {% if request.user.is_authenticated %}
+        <a href="{% url 'logout' %}">Logout</a>
+        {% else %}
+        <a href="{% url 'login' %}">Login</a>
+        {% endif %}
+    </div>
+
+
+
+    {% comment %} <hr>
+    <h1>My To Do List {{color}} </h1> {% endcomment %}
+
+    <div id="search-add-wrapper">
+        <form method="GET" action="" style="margin-top: 20px; display: flex;">
+            <input type="text" name="search-area" value="{{search_input}}">
+            <input class="button" type="submit" value="search">
+        </form>
+        <a id="add-link" href="{% url 'task-create' %}">&#43;</a>
+    </div>
+
+    
+
+    
+
+
+    <div class="task-items-wrapper">
+        {% for task in tasks %}
+            <div class="task-wrapper">
+                {% if task.complete %}
+                    <div class="task-title">
+                        <div class="task-complete-icon">
+                            <div class="task-text">
+                                <i><s><a href="{% url 'task-update' task.id %}">{{task}} </a></s></i> 
+                            </div>
+                        </div>
+                    </div>
+                    <a class="delete-link" href="{% url 'task-delete' task.id %}">&#10539;</a>
+                {% else %}
+                    <div class="task-title">
+                        <div class="task-incomplete-icon">
+                            <div class="task-text">
+                                <a href="{% url 'task-update' task.id %}">{{task}} </a>
+                            </div>
+                            <div class="task-text">created at {{task.created}}</div>
+                        </div>
+                    </div>
+                    <a class="delete-link" href="{% url 'task-delete' task.id %}">&#10539;</a>
+                {% endif %}
+            </div>
+        {% empty %}
+        <h3>No items in list</h3>
+        {% endfor %}
+    </div>
+{% endblock content %}
+
+
