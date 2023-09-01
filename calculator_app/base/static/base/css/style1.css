@@ -1,0 +1,98 @@
+body{
+    
+    font-family: 'Bitter', serif;
+    padding-top: 50px;
+    height: 100vh;
+    overflow: hidden;
+
+    background: radial-gradient(80.99% 100% at 50% 0%, #00FF0A 0%, #36008E 100%), radial-gradient(50% 123.47% at 50% 50%, #EFE7C8 0%, #36008E 100%), linear-gradient(301.28deg, #FF006B 0%, #48DD9E 100%), linear-gradient(294.84deg, #5A60E4 0%, #D30000 100%), linear-gradient(52.29deg, #000000 0%, #00FF85 100%), radial-gradient(100% 138.69% at 100% 0%, #0007A5 0%, #FF7A00 100%), radial-gradient(70.41% 100% at 50% 0%, #D5B300 0%, #2200AA 100%);
+    background-blend-mode: screen, screen, lighten, overlay, lighten, difference, normal;   
+}
+
+
+.error{
+    color: #be0303;
+}
+
+h1, h2, h3, h4, h5, h6{
+    font-weight: 900;
+}
+
+
+.container{
+    max-width: 550px;
+    margin: auto;
+    background-color: #fff;
+    -webkit-box-shadow: 2px 2px 13px -4px rgba(0, 0, 0, 0.21);
+    box-shadow: 2px 2px 13px -4px rgba(0, 0, 0, 0.21);
+}
+
+
+.header-bar{
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px 5px 0 0;
+    background: linear-gradient( to right, #753a88,#5dcdc2 );
+}
+.header-bar h1{
+    padding-right: 190px;
+}
+
+.header-img {
+    width: 70px; 
+    height: 70px; 
+    padding-left: 3px;
+    padding-top: 3px;
+}
+
+.card-img{
+    width: 230px;
+    height: 210px;
+    float: right;
+}
+
+select[name="operation"] {
+    margin: 5px;
+    border-radius: 5px 5px 5px 5px;
+    cursor: pointer;
+}
+
+.result{
+    font-family:monospace;
+    display: inline-block;
+    overflow-wrap: anywhere;
+    margin-top: 10px;
+    border-radius: 5px 5px 5px 5px;
+    background-color: #fff;
+    border: 1px solid rgb(53, 36, 36);
+    
+}
+
+
+.tab{
+    padding-left: 60px;
+}
+
+label{
+    padding-top: 10px !important;
+    display: block;
+}
+
+.button{
+    padding-block: 45px;
+    border: 1px solid #36008E;
+    background-color: #fafafa;
+    color: #36008E;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+
+.card-body{
+    padding: 20px;
+}

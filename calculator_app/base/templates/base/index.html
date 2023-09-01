@@ -1,31 +1,42 @@
 {% extends 'base/main.html' %}
 
 {% block content %}
+    {% load static %}
     <div class="header-bar">
+        <img class="header-img" src="{% static 'base/images/img1.png' %}" alt="Calculator Image">
         <h1>Simple Calculator</h1>
     </div>
     <div class="card-body">
+        <img class="card-img" src="{% static 'base/images/img2.png' %}" alt="Calculator Image">
         <form method="post">
             {% csrf_token %}
             <label for="num1">Number 1:</label>
-            <input type="text" name="num1"><br>
+            <input type="text" id="num1" name="num1"><br>
             <label for="num2">Number 2:</label>
-            <input type="text" name="num2"><br>
+            <input type="text" id="num2" name="num2"><br>
             <label for="operation">Operation:</label>
-            <select name="operation">
+            <select id="operation" name="operation">
                 <option value="add">Add</option>
                 <option value="subtract">Subtract</option>
                 <option value="multiply">Multiply</option>
                 <option value="divide">Divide</option>
             </select><br>
-            <input style="margin: 20px;" class="button" type="submit" value="Calculate">
+            <input class="button" type="submit" value="Calculate">
         </form>
-        <div class="result">
-            {% if result %}
-            <h2>Result: <br>{{num1}} {{operation}} {{num2}} = {{ result }}</h2>
-            {% endif %}
+        
+        {% if error_message %}
+        <div class="error">
+            <p>{{ error_message }}</p>
         </div>
+        {% endif %}
+        
+        {% if result %}
+        <div class="result">
+            <h2> <u> Result: </u><br>
+                <div class="tab">
+                    {{ num1 }} {{ operation }} {{ num2 }} = {{ result }}</h2>
+                </div>
+        </div>
+        {% endif %}
     </div>
-
-
 {% endblock content %}
